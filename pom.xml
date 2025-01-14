@@ -42,7 +42,8 @@
         <finalName>MvnTest</finalName>
 
         <plugins>
-            <!--普通java项目 打包插件-->
+            <!--普通java项目 打包插件 用于指定main Class，否则jar没有主类要报错
+            -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
