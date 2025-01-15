@@ -3,16 +3,18 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>org.wx</groupId>
-        <artifactId>maven-lab</artifactId>
-        <version>1.0-SNAPSHOT</version>
-    </parent>
+<!--    <parent>-->
+<!--        <groupId>org.wx</groupId>-->
+<!--        <artifactId>maven-lab</artifactId>-->
+<!--        <version>1.0-SNAPSHOT</version>-->
+<!--    </parent>-->
 
     <groupId>org.wx</groupId>
     <artifactId>common-lab</artifactId>
-<!--    <version>2.0-RELEASE</version>-->
-    <version>2.0-SNAPSHOT</version>
+<!--    <version>2.0-RELEASE</velssion>-->
+<!--    <version>3.0-RELEASE</version>-->
+    <version>5.0-SNAPSHOT</version>
+<!--    <version>2.0-SNAPSHOT</version>-->
 
 
     <properties>
@@ -20,5 +22,18 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+
+    <distributionManagement>
+        <repository>
+            <id>wx-personal-release</id>
+            <url>http://192.168.5.66:8997/repository/wx-personal-release/</url>
+        </repository>
+        <snapshotRepository>
+            <id>wx-personal</id>
+            <url>http://192.168.5.66:8997/repository/wx-personal/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
 
 </project>

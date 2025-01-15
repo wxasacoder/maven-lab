@@ -50,7 +50,7 @@
 
     <build>
         <!--jar包的名字-->
-        <finalName>maven-lab-${project.name}</finalName>
+<!--        <finalName>maven-lab-${project.name}</finalName>-->
 
         <plugins>
             <!--普通java项目 打包插件 用于指定main Class，否则jar没有主类要报错
