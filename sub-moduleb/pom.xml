@@ -23,6 +23,12 @@
             <artifactId>common-lab</artifactId>
             <version>3.0-RELEASE</version>
         </dependency>
+        <dependency>
+            <groupId>org.smallmind</groupId>
+            <artifactId>scribe-pen</artifactId>
+            <version>6.3.0</version>
+        </dependency>
+
     </dependencies>
 
 </project>
