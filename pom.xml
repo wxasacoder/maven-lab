@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>wx</groupId>
+    <groupId>org.wx</groupId>
     <artifactId>maven-lab</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
@@ -50,7 +50,7 @@
 
     <build>
         <!--jar包的名字-->
-        <finalName>MvnTest</finalName>
+        <finalName>maven-lab-${project.name}</finalName>
 
         <plugins>
             <!--普通java项目 打包插件 用于指定main Class，否则jar没有主类要报错
@@ -109,6 +109,17 @@
         </plugins>
     </build>
 
+
+    <distributionManagement>
+        <repository>
+            <id>wx-personal-release</id>
+            <url>http://192.168.5.66:8997/repository/wx-personal-release/</url>
+        </repository>
+        <snapshotRepository>
+            <id>wx-personal</id>
+            <url>http://192.168.5.66:8997/repository/wx-personal/</url>
+        </snapshotRepository>
+    </distributionManagement>
 
 
 </project>
