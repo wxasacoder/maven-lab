@@ -1,82 +1,73 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-
-    <groupId>org.wx</groupId>
-    <artifactId>maven-lab</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
-    <modules>
-        <module>sub-module</module>
-        <module>sub-moduleb</module>
-        <module>common-lab</module>
-    </modules>
-
-    <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>trace</groupId>
-                <artifactId>trace-activation</artifactId>
-                <version>8.0.1</version>
-                <scope>system</scope>
-                <systemPath>${project.basedir}/ext-lab/apm-toolkit-trace-activation-8.0.1.jar</systemPath>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
-<!--    <parent>
+<?xml version="1.0" encoding="UTF-8"?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.wx</groupId>
+  <artifactId>maven-lab</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <modules>
+    <module>sub-module</module>
+    <module>sub-moduleb</module>
+    <module>common-lab</module>
+    <module>code-line-count</module>
+  </modules>
+  <properties>
+    <maven.compiler.source>8</maven.compiler.source>
+    <maven.compiler.target>8</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>trace</groupId>
+        <artifactId>trace-activation</artifactId>
+        <version>8.0.1</version>
+        <scope>system</scope>
+        <systemPath>${project.basedir}/ext-lab/apm-toolkit-trace-activation-8.0.1.jar</systemPath>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+  <!--    <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.3.2.RELEASE</version>
         <relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;
     </parent>-->
-    <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13.2</version>
-            <scope>runtime</scope>
-        </dependency>
-    </dependencies>
-
-
-    <build>
-        <!--jar包的名字-->
-<!--        <finalName>maven-lab-${project.name}</finalName>-->
-
-        <plugins>
-            <!--普通java项目 打包插件 用于指定main Class，否则jar没有主类要报错
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.13.2</version>
+      <scope>runtime</scope>
+    </dependency>
+  </dependencies>
+  <build>
+    <!--jar包的名字-->
+    <!--        <finalName>maven-lab-${project.name}</finalName>-->
+    <plugins>
+      <!--普通java项目 打包插件 用于指定main Class，否则jar没有主类要报错
             -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>3.2.1</version>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <!--使用shade plugin 将shade 的goal绑定package以产生胖jar-->
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
-                        <configuration>
-                            <transformers>
-                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>org.wx.Main</mainClass>
-                                </transformer>
-                            </transformers>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <!--编译插件-->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>3.2.1</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <!--使用shade plugin 将shade 的goal绑定package以产生胖jar-->
+            <goals>
+              <goal>shade</goal>
+            </goals>
+            <configuration>
+              <transformers>
+                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                  <mainClass>org.wx.Main</mainClass>
+                </transformer>
+              </transformers>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <!--编译插件-->
       <!--      <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -99,27 +90,21 @@
                     </annotationProcessorPaths>
                 </configuration>
             </plugin>-->
-
-
-            <!--spring-boot打包插件-->
-<!--            <plugin>-->
-<!--                <groupId>org.springframework.boot</groupId>-->
-<!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
-<!--            </plugin>-->
-        </plugins>
-    </build>
-
-
-    <distributionManagement>
-        <repository>
-            <id>wx-personal-release</id>
-            <url>http://192.168.5.66:8997/repository/wx-personal-release/</url>
-        </repository>
-        <snapshotRepository>
-            <id>wx-personal</id>
-            <url>http://192.168.5.66:8997/repository/wx-personal/</url>
-        </snapshotRepository>
-    </distributionManagement>
-
-
+      <!--spring-boot打包插件-->
+      <!--            <plugin>-->
+      <!--                <groupId>org.springframework.boot</groupId>-->
+      <!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
+      <!--            </plugin>-->
+    </plugins>
+  </build>
+  <distributionManagement>
+    <repository>
+      <id>wx-personal-release</id>
+      <url>http://192.168.5.66:8997/repository/wx-personal-release/</url>
+    </repository>
+    <snapshotRepository>
+      <id>wx-personal</id>
+      <url>http://192.168.5.66:8997/repository/wx-personal/</url>
+    </snapshotRepository>
+  </distributionManagement>
 </project>
