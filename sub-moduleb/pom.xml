@@ -12,16 +12,34 @@
     <artifactId>sub-moduleb</artifactId>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
+<!--
+    maven在进行拉包的时候是先会下载groupId/artifactId 下的maven-metadata.xml
+    这个xml中会记载当前的release是多少
+    <metadata>
+        <groupId>org.wx</groupId>
+        <artifactId>common-lab</artifactId>
+        <versioning>
+            <release>6.0-RELEASE</release>
+            <versions>
+                <version>2.0-RELEASE</version>
+                <version>3.0-RELEASE</version>
+                <version>6.0-RELEASE</version>
+            </versions>
+            <lastUpdated>20250115122241</lastUpdated>
+        </versioning>
+    </metadata>
+    可以看到当前最新的是 release 是什么版本
+-->
         <dependency>
             <groupId>org.wx</groupId>
             <artifactId>common-lab</artifactId>
-            <version>3.0-RELEASE</version>
+            <version>RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.smallmind</groupId>
