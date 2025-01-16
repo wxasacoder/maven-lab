@@ -18,6 +18,7 @@
         <configuration>
           <!-- Specify the MyMojo parameter -->
           <outputDirectory>target/test-harness/project-to-test</outputDirectory>
+          <srcCodeDir>${project.build.sourceDirectory}</srcCodeDir>
         </configuration>
       </plugin>
     </plugins>
